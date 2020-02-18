@@ -11,6 +11,6 @@ echo "memory_limit=${PHP_MEMORY_LIMIT}"; \
 echo "post_max_size=${PHP_POST_MAX_SIZE}"; \
 echo "upload_max_filesize=${PHP_UPLOAD_MAX_FILESIZE}"; \
 echo "date.timezone=${PHP_TIMEZONE}"; \
-) > /usr/local/etc/php/conf.d/mediawiki.ini
+) > /etc/php7/conf.d/mediawiki.ini
 
 exec "$@"

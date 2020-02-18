@@ -25,7 +25,7 @@ RUN { \
     echo 'opcache.revalidate_freq=2'; \
     echo 'opcache.fast_shutdown=1'; \
     echo 'opcache.enable_cli=0'; \
-    } > /usr/local/etc/php/conf.d/opcache-recommended.ini
+    } > /etc/php7/conf.d/opcache-recommended.ini
 
 # PHP
 ENV PHP_MAX_EXECUTION_TIME 60
@@ -40,8 +40,9 @@ RUN set -x \
     && addgroup -g 1000 -S apache \
     && adduser -u 1000 -D -S -G apache apache
 
-COPY entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["entrypoint.sh"]
+COPY ./docker-entrypoint.sh /
+
+ENTRYPOINT ["sh","/docker-entrypoint.sh"]
 
 CMD ["php", "-a"]
 
