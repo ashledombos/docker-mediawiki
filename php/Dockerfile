@@ -37,9 +37,11 @@ ENV PHP_TIMEZONE America/Guadeloupe
 EXPOSE 9000
 
 RUN set -x \
-    && addgroup -g 1000 -S www-data \
-    && adduser -u 1000 -D -S -G www-data www-data
+    && addgroup -g 1000 -S apache \
+    && adduser -u 1000 -D -S -G apache apache
+
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
+
 CMD ["php", "-a"]
 
