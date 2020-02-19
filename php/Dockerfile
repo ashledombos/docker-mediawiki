@@ -1,6 +1,7 @@
-FROM alpine:3
+FROM alpine:latest
 RUN apk --no-cache add \
         php7 \
+        php7-fpm \
         php7-apcu \
         php7-intl \
         php7-mbstring \
@@ -16,7 +17,8 @@ RUN apk --no-cache add \
         php7-iconv \
         imagemagick \
         mini-sendmail \
-        diffutils
+        diffutils \
+        vim 
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
@@ -36,6 +38,8 @@ ENV PHP_POST_MAX_SIZE 40M
 ENV PHP_UPLOAD_MAX_FILESIZE 32M
 ENV PHP_TIMEZONE America/Guadeloupe
 
+RUN sed -i 's/.*listen = 127.0.0.1:9000*/listen = 9000/' /etc/php7/php-fpm.d/www.conf
+
 EXPOSE 9000
 
 RUN set -x \
@@ -46,5 +50,5 @@ COPY ./docker-entrypoint.sh /
 
 ENTRYPOINT ["sh","/docker-entrypoint.sh"]
 
-CMD ["php-fpm"]
+CMD ["php-fpm7","-F"]
 
