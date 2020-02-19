@@ -44,5 +44,5 @@ COPY ./docker-entrypoint.sh /
 
 ENTRYPOINT ["sh","/docker-entrypoint.sh"]
 
-CMD ["php", "-a"]
+CMD ["php-fpm"]
 
