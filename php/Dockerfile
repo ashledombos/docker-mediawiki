@@ -1,6 +1,7 @@
 FROM alpine:3
 RUN apk --no-cache add \
         php7 \
+        php7-fpm \
         php7-apcu \
         php7-intl \
         php7-mbstring \
