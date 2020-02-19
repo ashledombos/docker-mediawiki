@@ -15,7 +15,8 @@ RUN apk --no-cache add \
         php7-ldap \
         imagemagick \
         mini-sendmail \
-        diffutils
+        diffutils \
+        vim
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
@@ -45,5 +46,5 @@ COPY ./docker-entrypoint.sh /
 
 ENTRYPOINT ["sh","/docker-entrypoint.sh"]
 
-CMD ["php-fpm"]
+CMD ["php-fpm7"]
 
