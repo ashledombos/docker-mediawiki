@@ -12,6 +12,8 @@ RUN apk --no-cache add \
         php7-curl \
         php7-pecl-imagick \
         php7-ldap \
+        php7-ctype \
+        php7-iconv \
         imagemagick \
         mini-sendmail \
         diffutils
