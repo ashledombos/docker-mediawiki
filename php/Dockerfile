@@ -7,7 +7,7 @@ RUN apk --no-cache add \
         php7-mbstring \
         php7-xml \
         php-xmlreader \
-        php7-mysqlnd \
+        php7-mysqli \
         php7-fileinfo \
         php7-json \
         php7-session \
